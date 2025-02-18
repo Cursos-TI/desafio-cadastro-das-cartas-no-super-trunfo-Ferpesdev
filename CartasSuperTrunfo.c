@@ -9,7 +9,7 @@
 int main() {
     char codigo[4], nome[50], pontos_turisticos[100];
     int populacao;
-    float area, pib;
+    float area, pib, densidade_populacional, pib_per_capita;
 
     printf("Codigo (ex: A01):");
     scanf("%s", codigo);
@@ -29,9 +29,15 @@ int main() {
     printf("Ponto Turisticos: ");
     scanf(" %[^\n]", pontos_turisticos);
 
+    densidade_populacional = populacao / area;
+    pib_per_capita = (pib * 1000000000) / populacao; 
+    
     printf("\n=== Cidade Cadastrada ===\n");
     printf("Código: %s\nNome: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões\nPontos turísticos: %s\n",
         codigo, nome, populacao, area, pib, pontos_turisticos);
 
+    printf("Densidade Populacional: %.2f hab/km²\nPIB per capita: %.2f\n", densidade_populacional, pib_per_capita);
+
     return 0;
 }
+
